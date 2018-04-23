@@ -2,7 +2,7 @@
 Coding assessment
 
 - Use a code first approach
-- Show list of people
+- Create a view to show list of people
 - Using EditPerson.html as a starting point convert this to an MVC view
 - Make the new Edit view save the person to the person table
 - Add functionality to add an address to a person and save to database

@@ -44,7 +44,7 @@ namespace PersonApplication.Controllers
                                               ZipCode = p.PersonAddress.ZipCode
                                           }).ToList();
 
-                return View(_personAddressList);
+                return View("EmployeeDetails",_personAddressList);
             }
             catch (Exception ex)
             {

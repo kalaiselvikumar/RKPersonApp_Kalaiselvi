@@ -30,10 +30,10 @@ namespace PersonApplication.DataAccess.Repository
 
         public T GetById(object Id)
         {
-           return _dbset.Find(Id);
+          return _dbset.Find(Id);
 
-         // return  _dbset.Select(x => x).Include("PersonAddress").Single(x => x.Id ==(int) Id);
-        
+        //  return  _dbset.Select(x => x).Include("PersonAddress").Single(x => x.Id ==(int) Id);
+                
 
 
         }
@@ -56,11 +56,11 @@ namespace PersonApplication.DataAccess.Repository
             _entities.Entry(entity).State = EntityState.Modified;
         }
 
-        public virtual IEnumerable<T> GetAll()
+        public virtual IQueryable<T> GetAll()
         {
             //    return _dbset.AsEnumerable<T>();
-            return _dbset.Where(e => e.IsDeleted == false);
-
+            //  return _dbset.Where(e => e.IsDeleted == false).Include("PersonAddress");
+            return _dbset.AsQueryable<T>();
         }
 
         //public virtual IEnumerable<T> GetAll()

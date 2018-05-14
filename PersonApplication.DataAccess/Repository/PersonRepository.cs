@@ -11,9 +11,10 @@ namespace PersonApplication.DataAccess.Repository
         public PersonRepository(DbContext context) : base(context)
         {
         }
-        public override IEnumerable<Person> GetAll()
+        public override IQueryable<Person> GetAll()
         {
-            return _dbset.Where(e => e.IsDeleted == false).Include("PersonAddress");
+            //  return _dbset.Where(e => e.IsDeleted == false).Include("PersonAddress");
+            return _dbset.Include("PersonAddress");
         }
     }
 }

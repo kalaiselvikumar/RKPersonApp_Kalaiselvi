@@ -12,6 +12,7 @@ namespace PersonApplication.AutofacWeb
     {
         public static void ConfigureContainer()
         {
+            
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 

@@ -28,6 +28,7 @@ namespace PersonApplication.Controllers
             try
             {
 
+
                 var _persons = _personRepository.GetAll();
                
                 var _personAddressList = (from p in _persons
@@ -154,8 +155,14 @@ namespace PersonApplication.Controllers
         public ActionResult Delete(int Id)
         {
             var Person = _personRepository.GetById(Id);
+            var Address = _addressRepository.GetById(Id);
             _personRepository.Delete(Person);
             _personRepository.Save();
+
+            Address.AddressId = Person.PersonId;
+            _addressRepository.Delete(Address);
+            _personRepository.Save();
+
             return RedirectToAction("EmployeeDetails");
         }
       

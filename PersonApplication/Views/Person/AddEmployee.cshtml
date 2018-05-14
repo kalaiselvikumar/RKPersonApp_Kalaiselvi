@@ -17,7 +17,7 @@
         <div class="form-group">
            
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control required" , @placeholder = "First Name *", @FirstName = "Please enter your firstname" }  })
+                @Html.EditorFor(model => model.FirstName)
                
             </div>
         </div>
@@ -25,8 +25,8 @@
         <div class="form-group">
           
             <div class="col-md-10">
-                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control required", @placeholder = "Last Name *" } })
-               
+                @*@Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control required", @placeholder = "Last Name *" } })*@
+                <input class="form-control required text-box single-line valid" id="LastName" name="LastName" placeholder="Last Name *" type="text" value="">
             </div>
         </div>
 
@@ -41,6 +41,7 @@
         <div class="form-group">
             <div class="col-md-10">
                 <input type="submit" value="Add" class="btn btn-default" />
+                @Html.
             </div>
         </div>
     </div>

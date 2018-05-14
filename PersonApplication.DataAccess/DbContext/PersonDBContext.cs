@@ -17,15 +17,18 @@ namespace PersonApplication.DataAccess
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer(new UniDBInitializer<PersonDBContext>());
-            
+
             modelBuilder.Entity<Person>()
+
                         .HasRequired(s => s.PersonAddress)
                         .WithRequiredPrincipal(ad => ad.Person);
+            
+                        
             base.OnModelCreating(modelBuilder);
         }
 
 
-        private class UniDBInitializer<T> :DropCreateDatabaseAlways<PersonDBContext>
+        private class UniDBInitializer<T> :DropCreateDatabaseIfModelChanges<PersonDBContext>
         {
 
             protected override void Seed(PersonDBContext context)
@@ -96,6 +99,7 @@ namespace PersonApplication.DataAccess
                     FirstName = "nisha",
                     LastName = "suresh",
                     Email = "nisha@gmail.com",
+
                     DeletedBy = 0,
                     DeletedDate = DateTime.Now,
                     IsDeleted = false

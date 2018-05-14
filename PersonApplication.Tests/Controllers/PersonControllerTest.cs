@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PersonApplication.Controllers;
 using Moq;
@@ -41,7 +42,7 @@ namespace PersonApplication.Tests.Controllers
             personList.Add(Person);
             
             mockPersonRepository.Setup(x => x.GetAll())
-               .Returns(personList);
+               .Returns(personList.AsQueryable());
             
 
             var controller = new PersonController(mockPersonRepository.Object, mockAddressRepository.Object, mockDbContext.Object);
@@ -71,7 +72,7 @@ namespace PersonApplication.Tests.Controllers
 
            
             mockPersonRepository.Setup(x => x.GetAll())
-               .Returns(personList);
+               .Returns(personList.AsQueryable());
 
           
             var controller = new PersonController(mockPersonRepository.Object, mockAddressRepository.Object, mockDbContext.Object);

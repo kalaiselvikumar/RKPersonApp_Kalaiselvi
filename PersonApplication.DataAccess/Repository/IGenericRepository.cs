@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Linq;
 
 namespace PersonApplication.DataAccess.Repository
 {
     public interface IGenericRepository<T> where T : EntityBase
     {
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
 
         T GetById(object Id);
         IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate);
